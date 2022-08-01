@@ -48,39 +48,23 @@ class Bank:
 
     def deposit(self, account_id, amount):
         if account_id in self.accounts:
-            account = self.accounts.get(account_id)
-            account.balance += amount
+            self.accounts[account_id][2] += amount
+            print ('You deposited $' +str(amount)  + ' and your new balance is $' + str(self.accounts[account_id][2]))
 
 
-    def withdrawl(self, account_id, amount):
+
+    def withdrawal(self, account_id, amount):
         if account_id in self.accounts:
-            account = self.accounts.get(account_id)
-            account.balance -= amount
+            self.accounts[account_id][2] -= amount
+            print('You withdrew $' + str(amount) + ' and your new balance is $' + str(self.accounts[account_id][2]))
+
 
     def balance_inquiry(self, account_id):
         if account_id not in self.accounts:
             print('Account does not exist')
         else:
-            balance = self.accounts[account_id][3]
+            balance = self.accounts[account_id][2]
             print('Your balance is: $' + str(balance))
-
-
-            # def balance_inquiry(self, account_id: int):
-            #     if account_id in self.account:
-            #         balance = self.account.get(account_id).balance
-            #         return round(balance, 2)
-            #     else:
-            #         raise ValueError(f'Account with id {account_id} does not exist.')
-
-                    # ef
-            # balance_inquiry(self, accountNum):
-            # print(accountNum)
-            # if accountNum not in self.accounts.keys():
-            #     print('Your account number does not exist')
-            # else:
-            #     return 'Balance Inquiry: Account number ' + str(accountNum) + ' has a balance of ' + '{:.2f}'.format(
-            #         self.accounts[accountNum][3]) + ' dollars\n'
-
 
 
 # Append the following methods to the Bank class:
